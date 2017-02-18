@@ -2,6 +2,7 @@
 
 int main()
 {
-	printf("%d %f", 3, 32.1);
+	printf("SALUT");
+	printf("%x", 3);
 	return (0);
 }
