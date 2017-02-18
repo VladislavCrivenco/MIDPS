@@ -2,6 +2,6 @@
 
 int main()
 {
-	printf("%d  %f", 5, 34.4);
+	printf("%f", 34.4);
 	return (0);
 }
