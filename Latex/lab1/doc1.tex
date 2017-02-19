@@ -1,0 +1,140 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\begin{center}
+	\textsc{\large Facultatea Calculatoare, Informatica si Microelectronica}\\[0.5cm]
+	\textsc{\large Universitatea Tehnica a Moldovei}\\[1.2cm]
+	\vspace{25mm}
+
+	\textsc{\Large Medii Interactive de Dezvoltare a Produselor Soft}\\[0.5cm]
+  	\textsc{\large Lucrarea de laborator\#1}\\[0.5cm] 
+
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+	\vspace{10 mm}
+
+  	\HRule \\[0.4cm]
+
+ 	 { \LARGE \bfseries Version Control Systems si modul de setare a unui server  }\\[0.4cm] 
+
+  	\HRule \\[1.5cm]
+
+	\vspace{30mm}
+
+	\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+	\emph{Autor:} \\
+	Crivenco \textsc{Vladislav}\\
+	\end{flushleft}
+	\end{minipage}
+      	\begin{minipage}{0.4\textwidth}
+
+      	\begin{flushright} \large
+
+      	\emph{lector asistent:} \\
+
+      	Irina \textsc{Cojanu} \\ % Supervisor's Name 
+
+     	 \end{flushright}
+
+      	\end{minipage}\\[4cm]
+
+
+
+     	\vspace{5 mm}
+
+	\vfill
+
+	\end{center}
+
+\end{titlepage}
+
+\section{Obiectivele laboratorului}
+Version Control Systems (git , bitbucket , mercurial , svn)
+
+\section{Lista de tascuri implementate}
+	\begin{enumerate}
+	\item initializarea unui nou reposituriu
+	\item adaugarea filului .gitignore
+	\item configurarea VCS
+	\item crearea branchurilor
+	\item commit pe ambele branchuri
+	\item setarea unui branch to track a remote 
+	\item resetarea unui branch la commitul anterior
+	\item salvarea temporara a schimbarilor prin comanda stash
+	\item merge a 2 branchuri
+	\item rezolvarea conflictelor la merge
+	\end{enumerate}
+
+\section{Analiza lucrarii de laborator}
+\href{https://github.com/VladislavCrivenco/MIDPS}{Repozitoriul pe Github}
+
+\subsection{Initializarea unui nou repozitoriu si configurarea}
+
+Pentru a initializa un repozitoriu , mai intii am creat un nou repozitoriu pe Github si in setari am ales add .gitignore
+ 
+Pentru ca sa pot avea o copie a acestui repozitoriu pe local si  posibilitatea de al modifica  pe viitor am utilizat protocolul ssh de conexiune la server.Am creat o cheie noua prin comanda ssh-keygen si am adaugat cheia publica generata pe githbub.
+Acum avind acces la rep. pot face git clone.
+
+\includegraphics*{git_clone}
+
+De asemenea prin git config --global am configurat numele si emailul meu. 
+
+\subsection{Crearea branchurilor}
+Prin comanda git branch branch1 am adaugat un branch nou.
+Pentru trecerea la branchul nou creat am folosit comanda git checkout
+
+\includegraphics*{git_checkout}
+\subsection{Salvarea schimbarilor pe repozitoriu}
+Dupa ce am adaugat mape si filuri in branch master ,am indexat schimbarilor prin git add *  si am fixat schimbarile prin git commit.
+
+Pentru a trimite schimbarile pe repozitoriul de pe Github am folosit comanda git push origin master, unde origin este pseudonimul creat automat  cind am facut git clone , iar master este branchul in care dorim sa facem schimbari.
+
+\subsection{Realizarea trackingului}
+Cind am facut git clone pentru clonarea repozitoriului pe local, git-ul automat a facut tracking a branchului master.Datorita la acest fapt cind fac git push / pull nu este necesar sa adaug originin master.
+Dar daca dorim sa adaugam totusi tracking putem folosit comanda git branch -u origin/dev unde "dev" este branchul la care dorim sa facem tracking.
+
+\subsection{Revenirea la starea anterioara }
+Daca dorim sa ne intoarcem la un anumit moment din istoria noastra de comituri  , putem realiza asta prin comanda git log , pentru a vedea numele commitului si apoi prin git checkout -b old-state 0d1d7fc32 .Astfel am creat un branch nou care se afla in starea in timpul comitului 0d1d7fc32, dar branchul original ramine in stare care era.
+
+Daca dorim insa sa stergem totul ce am facut pina acum si sa trecem la un commit anterior ,folosim git reset --hard 0d1d7fc32.
+
+\subsection{Salvarea temporara a schimbarilor}
+Eu am dorit sa trec pe branchul master, insa in branchul curent am filuri la care am lucrat ,dar inca nu leam terminat ,in acest caz nu pot face commit in aceasta stare nefinalizata. Pentru a rezolva problema am folosit git stash ,care ascunde filurile care nu sunt inca indexati.Daca apoi as dori sa reintorc tot ce am ascuns la starea initiala ,pot folosi git stash apply.
+
+\subsection{Merge}
+Pentru a transfera  modificarile dintrun branch in altul putem folosi git merge.Sistemul  gaseste parintele comun al acestor doua branchuri si realizeaza un commit nou cu partea comuna a acestor branchuri.Daca ambele branchuri au filuri in care sunt modificate aceleeasi parti din file ,merge automat nu va lucra si va aparea un conflict.
+Pentru rezolvarea conflictului trebuie manual editat acest file ,si de ales o metoda de combinare a ambelor functionalitati.
+
+\subsection{Folosirea tagurilor}
+Dupa ce am finalizat lucrul asupra repozitoriului ,am scris comanda git tag -a v1.0 -m 'Final commit' pentru a adauga un tag anotat.
+
+\includegraphics*{gittag}
+
+\includegraphics*{git_tag_show}
+
+\newpage
+\section{Concluzie}
+Aici voi scrie doar lucrurile care leam aflat si concluziile ce mi leam format pe parcurul efectuarii laboratorului
+
+In urma acestui laborator am insusit mai aprofundat utilizarea sistemului de control al versiunilor git.
+Chiar daca in majoritatea cazurilor nu lucrez in echipa asupra proiectelor , totuna este util utilizarea git, deoarece asa cu mult mai usor pot introduce modificari in proiect ,si reveni la o stare anterioara ,daca am stricat ceva.Deasemenea este comod cind lucrezi pe mai multe statii diferite asupra aceluiasi proiect.
+
+Am inteles ca pot folosi mai multe protocoale pentru conectarea la repozitoriul remote, si deja mereu voi folosi protocolul ssh , deoarece el asigura o conexiune sigura si criptata ,deasemenea si posibilitatea de a trimite schimbari pe repo remote.
+
+Am  inteles sensul comenzilor fetch si pull ,care acum imi par foarte utile.
+\clearpage
+
+\begin{thebibliography}{1}
+
+
+\bibitem{Pro Gitl} Scott Chacon, \textit{ official page}, \url{https://cloud.github.com/downloads/GArik/progit/progit.ru.pdf}
+
+
+
+\end{thebibliography}
+\end{document}
