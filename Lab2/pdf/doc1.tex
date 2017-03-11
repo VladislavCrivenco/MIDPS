@@ -1,0 +1,103 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\begin{center}
+	\textsc{\large Facultatea Calculatoare, Informatica si Microelectronica}\\[0.5cm]
+	\textsc{\large Universitatea Tehnica a Moldovei}\\[1.2cm]
+	\vspace{25mm}
+
+	\textsc{\Large Medii Interactive de Dezvoltare a Produselor Soft}\\[0.5cm]
+  	\textsc{\large Lucrarea de laborator\#2}\\[0.5cm] 
+
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+	\vspace{10 mm}
+
+  	\HRule \\[0.4cm]
+
+ 	 { \LARGE \bfseries GUI Developement  }\\[0.4cm] 
+
+  	\HRule \\[1.5cm]
+
+	\vspace{30mm}
+
+	\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+	\emph{Autor:} \\
+	Crivenco \textsc{Vladislav}\\
+	\end{flushleft}
+	\end{minipage}
+      	\begin{minipage}{0.4\textwidth}
+
+      	\begin{flushright} \large
+
+      	\emph{lector asistent:} \\
+
+      	Irina \textsc{Cojanu} \\ % Supervisor's Name 
+
+     	 \end{flushright}
+
+      	\end{minipage}\\[4cm]
+
+
+
+     	\vspace{5 mm}
+
+	\vfill
+
+	\end{center}
+
+\end{titlepage}
+
+\section{Obiectivele laboratorului}
+Realizeaza un simplu GUI Calculator si divizare proiectului in doua module - Interfata grafica(Modul GUI) si Modulul de baza(Core Module).
+
+\section{Lista de tascuri implementate}
+	\begin{enumerate}
+	\item Realizeaza un simplu GUI calculator care suporta urmatoare functii: +, -, /, *, putere, radical, InversareSemn(+/-), operatii cu numere zecimale.
+	\item Divizare proiectului in doua module - Interfata grafica(Modul GUI) si Modulul de baza(Core Module).
+	\end{enumerate}
+
+\section{Analiza lucrarii de laborator}
+\href{https://github.com/VladislavCrivenco/MIDPS}{Repozitoriul pe Github}
+
+\subsection{Realizeaza un simplu GUI calculator}
+
+Pentru a dezvolta un GUI calculator am folosit limbajul C# si Visual Studio 2012 ca IDE ,deoarece este foarte simplu de aranjat partea grafica a calculatorului (adaugarea butonurilor, TextBoxului) si respectiv modificarea setarilor fiecarui element grafic.
+\includegraphics*{GUI}
+
+Visual Studio automat genereaza listening la butoane prin crearea unui corp de functie. Noua ne ramine doar sa scriem logica programului in aceasta functie.
+
+\includegraphics*{listen}
+
+\subsection{Divizare proiectului in doua module }
+Aici tot lucrul practic a fost realizat de insasi IDE, Visual Studio automat a creat mai multe file-uri.
+
+File Designer.cs contine declararea tuturor elemente de GUI
+si respectiv proprietatile lor (dimensiunea, locatia, stilul).
+
+\includegraphics*{gui_gen}
+
+File Form1.cs include logica programului , calcularea rezultatului si managmentul erorilor.
+
+\includegraphics*{logic_gen}
+
+\newpage
+\section{Concluzie}
+In urma acestui laborator am facut cunostinta cu Window Forms si cu elemente de baza din C#.Am insusit cum pot adauga elemente grafice cu usurinta in aplicatia mea, si am inteles cum pot modifica majoritatea din proprietatile fiecarui element.
+Utilizarea unui limbaj nou nu a creat dificultati din cauza banalitatii functionalului aplicatiei ,si datorita faptului ca acest limbaj se aseamana tare cu toate limbajele din familia C.
+\clearpage
+
+\begin{thebibliography}{1}
+
+
+\bibitem{Pro Gitl} Scott Chacon, \textit{ official page}, \url{https://cloud.github.com/downloads/GArik/progit/progit.ru.pdf}
+
+
+
+\end{thebibliography}
+\end{document}
