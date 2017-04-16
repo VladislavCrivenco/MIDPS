@@ -1,0 +1,110 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\begin{center}
+	\textsc{\large Facultatea Calculatoare, Informatica si Microelectronica}\\[0.5cm]
+	\textsc{\large Universitatea Tehnica a Moldovei}\\[1.2cm]
+	\vspace{25mm}
+
+	\textsc{\Large Medii Interactive de Dezvoltare a Produselor Soft}\\[0.5cm]
+  	\textsc{\large Lucrarea de laborator\#3}\\[0.5cm] 
+
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+	\vspace{10 mm}
+
+  	\HRule \\[0.4cm]
+
+ 	 { \LARGE \bfseries Web development  }\\[0.4cm] 
+
+  	\HRule \\[1.5cm]
+
+	\vspace{30mm}
+
+	\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+	\emph{Autor:} \\
+	Crivenco \textsc{Vladislav}\\
+	\end{flushleft}
+	\end{minipage}
+      	\begin{minipage}{0.4\textwidth}
+
+      	\begin{flushright} \large
+
+      	\emph{lector asistent:} \\
+
+      	Irina \textsc{Cojanu} \\ % Supervisor's Name 
+
+     	 \end{flushright}
+
+      	\end{minipage}\\[4cm]
+
+
+
+     	\vspace{5 mm}
+
+	\vfill
+
+	\end{center}
+
+\end{titlepage}
+
+\section{Obiectivele laboratorului}
+\subsection{Realizarea unui simplu Web Site personal}
+\subsection{Familiarizarea cu HTML si CSS}
+\subsection{Interactiuni Javascript}
+
+\section{Lista de tascuri implementate}
+	\begin{enumerate}
+	\item Realizeaza un mini site cu 3 pagini statice
+	\item Pastrarea  informatiei intr-o baza de date
+	\item Informatia este incarcata dinamic pe pagina
+	\end{enumerate}
+
+\section{Analiza lucrarii de laborator}
+\href{https://github.com/VladislavCrivenco/MIDPS}{Repozitoriul pe Github}
+
+\subsection{Realizeaza un mini site cu 3 pagini statice}
+
+In acest laborator a fost realizat un site in care useru isi poate adauga albume si muzica iubita, inclusiv fisiere audio pentru a le putea asculta online.
+Deci prima pagina este cea de inregistrare
+\linebreak[4]
+\includegraphics*[width=10cm, height=15cm]{reg}
+
+Si respectiv pagina de logare
+
+\includegraphics*[width=10cm, height=15cm]{log}
+
+O pagina pentru adaugarea unui album nou
+
+\includegraphics*[width=10cm, height=10cm]{album}
+
+Si o pagina de adaugare a unei piese muzicale in album
+
+\includegraphics*[width=10cm, height=13cm]{song}
+
+Deasemnea situl are un meniu de navigare 
+
+\includegraphics*[width=15cm, height=2cm]{menu}
+
+\subsection{Pastrarea informatiei intr-o baza de date}
+Framework-ul automat leaga proiectul cu o baza de date MySql,
+in care creeaza tabele pentru fiecare din modele(Album si Song)
+
+\includegraphics*[width=15cm, height=16cm]{model}
+
+Daca ne logam ca admin ,putem sa modificam tot ce se contine in baza de date 
+
+\includegraphics*[width=15cm, height=16cm]{admin}
+
+\newpage
+\section{Concluzie}
+In urma acestui laborator am facut cunostinta cu procesul de dezvoltare a unui site utilizind un frame-work.Avind 0 cunostinte in acest domeniu, acum inteleg structura unui site, in special partea de back-end.Stiu cum sa leg serverul cu o baza de date si sa fac manipulari la nivel esential cu ea.
+Deasemenea am incercat Bootstrap care mia usurat mult lucrul la crearea meniului si partea de dezign.
+\clearpage
+
+\end{document}
